@@ -4,7 +4,7 @@ class Counter extends Component{
     state = {}
     render() {
         // jsx expression that gets compiled as React.createElement()
-        return <h1>Hello World</h1>
+        return <div><h1>Hello World</h1><button>Increment</button></div>;
     }
 
 }
