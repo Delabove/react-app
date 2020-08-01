@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
+    tags: ["tag1", "tag2", "tag3"],
   };
 
   render() {
@@ -11,6 +12,15 @@ class Counter extends Component {
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button className="btn btn-secondary btn-sm">Increment</button>
+        <ul>
+          {/*render dynamically*/}
+          {
+            this.state.tags.map((tag) => (
+              <li key={tag}>{tag}</li>
+            ))
+            //    mapping a string with jsx expression to be compiled into a react element = js object
+          }
+        </ul>
       </React.Fragment>
     );
   }
@@ -32,7 +42,7 @@ class Counter extends Component {
 
     // improvement on code with object restructuring:
     const { count } = this.state;
-    return count === 0 ? "0" : count;
+    return count === 0 ? "ZERO" : count;
   }
 }
 export default Counter;
