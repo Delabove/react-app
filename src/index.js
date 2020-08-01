@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const element = <h1>Hello World</h1>
+console.log(element)
+ReactDOM.render( element,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
+
+    // <h1>Hello World</h1>,
+
   document.getElementById('root')
 );
 
@@ -15,3 +20,8 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+
+
+
