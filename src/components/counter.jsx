@@ -3,11 +3,13 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
+    imageUrl: "https://picsum.photos/200",
   };
   render() {
     // jsx expression that gets compiled as React.createElement()
     return (
       <React.Fragment>
+        <img src={this.state.imageUrl} alt="" />
         <span>{this.formatCount()}</span>
         <button>Increment</button>
       </React.Fragment>
