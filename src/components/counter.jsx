@@ -18,8 +18,9 @@ class Counter extends Component {
   // }
 
   //using an arrow function is another way to "inherit" "this" bc they don't rebind
-  handleIncrement = () => {
-    this.state.count = this.state.count++;
+  handleIncrement = (product) => {
+    console.log(product);
+    // this.state.count = this.state.count++;
     //explicitly tell react what it has changed
     this.setState({ count: this.state.count + 1 });
   };
@@ -30,7 +31,7 @@ class Counter extends Component {
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement({})}
           className="btn btn-secondary btn-sm"
         >
           Increment
