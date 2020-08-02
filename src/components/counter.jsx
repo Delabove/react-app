@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+  //  prop= data to component state=data given that is private to that component so other components cannot access
   state = {
     value: this.props.value,
     tags: ["tag1", "tag2", "tag3"],
@@ -25,18 +26,21 @@ class Counter extends Component {
   };
 
   render() {
-    console.log(this.props);
-    // jsx expression that gets compiled as React.createElement()
-    // console.log("props", this.props);
+    console.log("props", this.props);
     return (
       <React.Fragment>
-        <h4>{this.props.id}</h4>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.handleIncrement({})}
           className="btn btn-secondary btn-sm"
         >
           Increment
+        </button>
+        <button
+          onClick={this.props.onDelete}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
         </button>
         <ul>
           {
