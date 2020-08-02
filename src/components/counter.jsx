@@ -25,11 +25,12 @@ class Counter extends Component {
   };
 
   render() {
-    console.log("props", this.props);
+    console.log(this.props);
     // jsx expression that gets compiled as React.createElement()
     // console.log("props", this.props);
     return (
       <React.Fragment>
+        <h4>{this.props.id}</h4>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.handleIncrement({})}
