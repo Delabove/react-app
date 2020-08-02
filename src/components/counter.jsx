@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+  //with this method we can decide whether we need an ajax call for new data based on changes in props and state objects
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      //Ajax request to get new data from the server
+    }
+  }
+
   //  prop= data to component state=data given that is private to that component so other components cannot access
   // state = {
   //   value: this.props.counter.value,
