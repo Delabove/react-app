@@ -4,7 +4,7 @@ class Counter extends Component {
   //  prop= data to component state=data given that is private to that component so other components cannot access
   state = {
     value: this.props.counter.value,
-    tags: ["tag1", "tag2", "tag3"],
+    // tags: ["tag1", "tag2", "tag3"],
   };
 
   //NOTE:
@@ -42,14 +42,15 @@ class Counter extends Component {
         >
           Delete
         </button>
-        <ul>
-          {
-            this.state.tags.map((tag) => (
-              <li key={tag}>{tag}</li>
-            ))
-            //    mapping a string with jsx expression to be compiled into a react element = js object
-          }
-        </ul>
+        <br />
+        {/*<ul>*/}
+        {/*  {*/}
+        {/*    this.state.tags.map((tag) => (*/}
+        {/*      <li key={tag}>{tag}</li>*/}
+        {/*    ))*/}
+        {/*    //    mapping a string with jsx expression to be compiled into a react element = js object*/}
+        {/*  }*/}
+        {/*</ul>*/}
       </React.Fragment>
     );
   }
