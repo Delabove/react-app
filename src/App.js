@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Counters from "./components/counters";
-import Counter from "./components/counter";
 
 class App extends Component {
   state = {
@@ -14,6 +12,16 @@ class App extends Component {
       { id: 4, value: 0 },
     ],
   };
+
+  constructor() {
+    super();
+    console.log("App-Constructor");
+  }
+
+  componentDidMount() {
+    //Ajax call
+    console.log("App-Mounted");
+  }
 
   handleIncrement = (counter) => {
     const counters = [...this.state.counters];
@@ -33,11 +41,12 @@ class App extends Component {
 
   handleDelete = (counterId) => {
     // this.setState({ value: this.state.value - 1 });
-    const counters = this.state.counters.filter((c) => c.id != counterId);
+    const counters = this.state.counters.filter((c) => c.id !== counterId);
     this.setState({ counters });
   };
 
   render() {
+    console.log("App rendered");
     return (
       <React.Fragment>
         <Navbar
