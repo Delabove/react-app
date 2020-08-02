@@ -10,6 +10,11 @@ class Counter extends Component {
     }
   }
 
+  //gives us time to clean up before the component is removed from the DOM
+  componentWillUnmount() {
+    console.log("counter - unmount");
+  }
+
   //  prop= data to component state=data given that is private to that component so other components cannot access
   // state = {
   //   value: this.props.counter.value,
