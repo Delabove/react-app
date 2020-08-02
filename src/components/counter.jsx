@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value,
     tags: ["tag1", "tag2", "tag3"],
   };
 
@@ -18,15 +18,16 @@ class Counter extends Component {
   // }
 
   //using an arrow function is another way to "inherit" "this" bc they don't rebind
-  handleIncrement = (product) => {
-    console.log(product);
+  handleIncrement = () => {
     // this.state.count = this.state.count++;
     //explicitly tell react what it has changed
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   render() {
+    console.log("props", this.props);
     // jsx expression that gets compiled as React.createElement()
+    // console.log("props", this.props);
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
@@ -64,8 +65,8 @@ class Counter extends Component {
     // return this.state.count === 0 ? "Zero" : this.state.count;
 
     // improvement on code with object destructuring:
-    const { count } = this.state;
-    return count === 0 ? "ZERO" : count;
+    const { value } = this.state;
+    return value === 0 ? "ZERO" : value;
   }
 }
 export default Counter;
