@@ -6,14 +6,37 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"],
   };
 
+  //NOTE:
+
+  // binding event handler to "this" is one way to handle events
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+  // handleIncrement() {
+  //   console.log("Increment Clicked");
+  // }
+
+  //using an arrow function is another way to "inherit" "this" bc they don't rebind
+  handleIncrement = (product) => {
+    console.log(product);
+    // this.state.count = this.state.count++;
+    //explicitly tell react what it has changed
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     // jsx expression that gets compiled as React.createElement()
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={() => this.handleIncrement({})}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         <ul>
-          {/*render dynamically*/}
           {
             this.state.tags.map((tag) => (
               <li key={tag}>{tag}</li>
@@ -31,18 +54,46 @@ class Counter extends Component {
     classes += this.state.count === 0 ? "warning" : "primary";
     return classes;
 
-    // to avoid repetition we use badge- in the classes variable then warning and primary to the return statement append
+    // to avoid repetition use badge- in the classes variable then warning and primary to the return statement append
     // such that badge-primary or badge-warning
   }
 
   // method to call a function to return a value
   formatCount() {
-    // check the value of the count propery:
+    // check the value of the count property:
     // return this.state.count === 0 ? "Zero" : this.state.count;
 
-    // improvement on code with object restructuring:
+    // improvement on code with object destructuring:
     const { count } = this.state;
     return count === 0 ? "ZERO" : count;
   }
 }
 export default Counter;
+
+// Conditional Rendering -1. add separate helper method -or- 2.truesy falsey
+// state = {
+//   count: 0,
+//   tags: ["tag1", "tag2", "tag3"],
+// };
+// Method 1
+// renderTags() {
+//   if (this.state.tags.length === 0) return <p>There are no tags!</p>;
+//   method 2
+// return (
+//   <ul>
+//     {this.state.tags.map((tag) => (
+//       <li key={tag}>{tag}</li>
+//     ))}
+//   </ul>
+// );
+// }
+
+// render() {
+// jsx expression that gets compiled as React.createElement()
+// return (
+// <div>
+//   {/*only if tag array is empty*/}
+//   {this.state.tags.length === 0 && " Please create a new tag!"}
+//   {this.renderTags()}
+// </div>
+// );
